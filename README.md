@@ -1,4 +1,9 @@
-# actframework
+# Act.framework
+
+## Why Act.framework?
+> I loved PlayFramework v1.x because it was simple, clear and expressive. It brought us a completely different experience in web development with Java. However I don't totally agree with where Play 2.X is heading.
+I had thought of rolling out something that could follow the road paved by Play 1.x; something that is simple, clear, expressive and developer friendly.
+In short, we need a modern, sleek Java MVC framework which we don't get from Spring MVC, Sprint Boot, PlayFramework, SparkFramework or any others on the market
 
 ## Features
 ### A full stack MVC framework
