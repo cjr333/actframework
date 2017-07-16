@@ -1,0 +1,5 @@
+@args() {
+  String id
+  String pwd
+}
+{"id": "i-@id", "pwd": "i-@pwd"}
