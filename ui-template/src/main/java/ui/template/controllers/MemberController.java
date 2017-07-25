@@ -1,6 +1,7 @@
 package ui.template.controllers;
 
 import act.controller.Controller;
+import act.util.PropertySpec;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
 import ui.template.Model.Member;
@@ -8,9 +9,11 @@ import ui.template.Model.Member;
 public class MemberController extends Controller.Util {
     @GetAction("/")
     public void home() {
+        render();
     }
 
     @PostAction("/signup")
+    @PropertySpec(value = {"id", "nickname"})
     public Member signup(String id, String pwd) {
         Member member = new Member();
         member.setId(id);
