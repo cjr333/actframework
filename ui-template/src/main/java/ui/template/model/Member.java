@@ -1,4 +1,4 @@
-package ui.template.Model;
+package ui.template.model;
 
 public class Member {
     private String id;

@@ -1,4 +1,5 @@
 rootProject.name = 'actframework'
 include 'helloworld'
 include 'ui-template'
+include 'member'
 

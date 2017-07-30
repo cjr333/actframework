@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <form action="/signin" method="post">
+        <input type="text" id="id" name="id" placeholder="아이디" /><br/>
+        <input type="password" id="pwd" name="pwd" placeholder="비밀번호" /><br/>
+        <button type="button" id="btnJoin">회원가입</button>
+        <button type="submit">로그인</button>
+    </form>
+<script type="application/javascript">
+    $(function() {
+        $("#btnJoin").click(function(event) {
+            $.ajax({
+                method: "post",
+                url: "/signup",
+                dataType:"json",
+                data: {id:$("#id").val(), pwd:$("#pwd").val()},
+                success: function(result) {
+                    console.log(result);
+                }
+            });
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

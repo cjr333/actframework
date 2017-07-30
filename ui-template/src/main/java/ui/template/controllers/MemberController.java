@@ -4,7 +4,7 @@ import act.controller.Controller;
 import act.util.PropertySpec;
 import org.osgl.mvc.annotation.GetAction;
 import org.osgl.mvc.annotation.PostAction;
-import ui.template.Model.Member;
+import ui.template.model.Member;
 
 public class MemberController extends Controller.Util {
     @GetAction("/")
