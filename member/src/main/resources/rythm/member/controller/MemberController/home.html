@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>Home</title>
+</head>
+<body>
+    <form action="/signin" method="post">
+        <input type="text" id="id" name="id" placeholder="아이디" /><br/>
+        <input type="password" id="passwd" name="passwd" placeholder="비밀번호" /><br/>
+        <button type="button" id="btnSignup">회원가입</button>
+        <button type="button" id="btnSignin">로그인</button>
+    </form>
+    <script type="application/javascript">
+      $(function () {
+        $("#btnSignup").click(function (event) {
+          $.ajax({
+            method: "post",
+            url: "/signup",
+            dataType: "json",
+            data: {id: $("#id").val(), passwd: $("#passwd").val()},
+            success: function (result) {
+              alert("가입 성공");
+            }
+          });
+          return false;
+        });
+
+        $("#btnSignin").click(function (event) {
+          $.ajax({
+            method: "post",
+            url: "/signin",
+            dataType: "json",
+            data: {id: $("#id").val(), passwd: $("#passwd").val()},
+            success: function (result) {
+              location.href = "/signin";
+            },
+            error: function () {
+              alert("아이디/비밀번호를 다시 확인해주세요");
+            }
+          });
+          return false;
+        });
+      });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+@args String nickname
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <title>Member</title>
+</head>
+<body>
+    <p>@nickname 님 반갑습니다.</p>
+    <input type="password" id="passwd" name="passwd" placeholder="비밀번호" /><button type="button" id="btnModifyPasswd">변경</button><br/>
+    <input type="text" id="nickname" name="nickname" placeholder="닉네임" /><button type="button" id="btnModifyNickname">변경</button><br/>
+    <form action="" method="post">
+        <button type="submit" onclick="this.parentNode['action']='/delete';">탈퇴</button>
+        <button type="submit" onclick="this.parentNode['action']='/signout';">로그아웃</button>
+    </form>
+    <script type="application/javascript">
+      $(function () {
+        $("#btnModifyNickname").click(function (event) {
+          $.ajax({
+            method: "post",
+            url: "/modify",
+            dataType: "json",
+            data: {nickname: $("#nickname").val()},
+            success: function (result) {
+              alert("변경 성공");
+              location.reload();
+            }
+          });
+          return false;
+        });
+
+        $("#btnModifyPasswd").click(function (event) {
+          $.ajax({
+            method: "post",
+            url: "/modify",
+            dataType: "json",
+            data: {passwd: $("#passwd").val()},
+            success: function (result) {
+              alert("변경 성공");
+            }
+          });
+          return false;
+        });
+      });
+    </script>
+</body>
+</html>

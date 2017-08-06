@@ -1,44 +1,49 @@
 package member.model;
 
 import act.db.DB;
+import lombok.Builder;
+import lombok.Data;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.UniqueConstraint;
 
-@DB("derby")
-@Entity(name = "session")
+@DB("h2")
+@Entity(name = "member")
 public class Member {
     @Id
-    private Long id;
-    private String fn;
-    private String ln;
-    private String addr;
+    private Long memberSn;
+    @Column(unique = true)
+    private String id;
+    private String passwd;
+    private String nickname;
 
-    public long getId() {
-        return null == id ? -1 : id;
+    public Long getMemberSn() {
+        return memberSn;
     }
 
-    public String getFirstName() {
-        return fn;
+    public String getId() {
+        return id;
     }
 
-    public void setFirstName(String fn) {
-        this.fn = fn;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getLastName() {
-        return ln;
+    public String getPasswd() {
+        return passwd;
     }
 
-    public void setLastName(String ln) {
-        this.ln = ln;
+    public void setPasswd(String passwd) {
+        this.passwd = passwd;
     }
 
-    public String getAddress() {
-        return addr;
+    public String getNickname() {
+        return nickname;
     }
 
-    public void setAddress(String addr) {
-        this.addr = addr;
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
     }
 }

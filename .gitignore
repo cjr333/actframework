@@ -8,3 +8,11 @@ build
 act.pid
 
 target
+
+*.log
+
+session
+
+*.mv.db
+
+h2-create-all.sql
