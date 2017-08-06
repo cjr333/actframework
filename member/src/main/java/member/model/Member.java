@@ -5,9 +5,9 @@ import act.db.DB;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@DB("h2")
-@Entity(name = "ctct")
-public class Contact {
+@DB("derby")
+@Entity(name = "session")
+public class Member {
     @Id
     private Long id;
     private String fn;
