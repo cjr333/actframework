@@ -89,8 +89,11 @@ public class MemberController extends Controller.Util {
 
     // 세션 저장
     Member member = members.iterator().next();
-    Session session = new Session();
-    session.setMemberSn(member.getMemberSn());
+    Session session = daoSession.findById(member.getMemberSn());
+    if (session == null) {
+      session = new Session();
+      session.setMemberSn(member.getMemberSn());
+    }
     session.setExpiredAt(Instant.now().getEpochSecond() + SESSION_EXPIRE_SECONDS);
     daoSession.save(session);
 
