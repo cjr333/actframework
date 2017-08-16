@@ -20,7 +20,7 @@ import java.time.Instant;
 import java.util.UUID;
 
 public class MemberController extends Controller.Util {
-  private static final Long SESSION_EXPIRE_SECONDS = 600L;
+  private static final Integer SESSION_EXPIRE_SECONDS = 600;
   private EbeanDao<Long, Member> daoMember;
   private EbeanDao<Long, Session> daoSession;
 
@@ -100,6 +100,7 @@ public class MemberController extends Controller.Util {
     // 쿠키 저장
     H.Cookie cookie = new H.Cookie("memberSn");
     cookie.value(member.getMemberSn().toString());
+    cookie.maxAge(SESSION_EXPIRE_SECONDS*2);
     response.addCookie(cookie);
   }
 
