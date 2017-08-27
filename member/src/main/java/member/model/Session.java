@@ -1,7 +1,6 @@
 package member.model;
 
 import act.db.DB;
-import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

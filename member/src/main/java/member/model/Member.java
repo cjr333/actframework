@@ -1,13 +1,10 @@
 package member.model;
 
 import act.db.DB;
-import lombok.Builder;
-import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.UniqueConstraint;
 
 @DB("h2")
 @Entity(name = "member")

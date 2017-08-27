@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+<script>
+    $(function() {
+        var socket;
+        if (window.WebSocket) {
+            socket = new WebSocket("ws://localhost:5460/msg");
+            socket.onmessage = function (event) {
+                var home = document.getElementById('chat');
+                home.innerHTML = home.innerHTML + event.data + "<br />";
+            };
+        } else {
+            alert("Your browser does not support Websockets. (Use Chrome)");
+        }
+        function send(message) {
+            if (!window.WebSocket) {
+                return false;
+            }
+            if (socket.readyState == WebSocket.OPEN) {
+                socket.send(message);
+            } else {
+                alert("The socket is not open.");
+            }
+            return false;
+        }
+        $("#send").click(function (event) {
+            send($("#msg").val());
+            $("#msg").val("");
+        })
+    });
+</script>
+
+<input type="text" id="msg" /><button id="send">전송</button>
+<div id="chat"></div>
+</body>
+</html>
