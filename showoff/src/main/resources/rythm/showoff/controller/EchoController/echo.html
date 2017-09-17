@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+@import showoff.model.Member
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Echo</title>
+</head>
+<body>
+@args Member result
+<div>
+    <span class="label">name</span><span>@result.getName()</span>
+</div>
+<div>
+    <span class="label">age</span><span>@result.getAge()</span>
+</div>
+</body>
+</html>
